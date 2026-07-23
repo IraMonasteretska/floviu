@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
+
+    <link rel="stylesheet" href="css/lib/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/lib/swiper.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="pagewrapper">
+        <header class="header">
+            <div class="container header__inner">
+                <a href="/" class="header__logo" aria-label="Floviu — home">
+                    <img class="header__logo-img" src="img/general/logo.svg" alt="Floviu" width="147" height="61">
+                </a>
+
+                <nav class="header__nav" aria-label="Main navigation">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a class="header__link" href="#">Features</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Pricing</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Resources</a>
+                        </li>
+                    </ul>
+                    <div class="header__actions" aria-label="Download">
+                        <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                            <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20"
+                                height="20">
+                            <span class="header__store-btn-text">Download for iOS</span>
+                        </a>
+                        <a class="header__store-btn header__store-btn--google" href="#"
+                            aria-label="Download for Android">
+                            <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt=""
+                                width="20" height="20">
+                            <span class="header__store-btn-text">Download for Android</span>
+                        </a>
+                    </div>
+                    <button type="button" class="closemenu" aria-label="Close Menu" aria-expanded="false"
+                        aria-controls="site-nav">
+                        <img src="img/general/close.png" alt="close">
+                    </button>
+                </nav>
+
+                <div class="header__actions" aria-label="Download">
+                    <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                        <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20" height="20">
+                        <span class="header__store-btn-text">Download for iOS</span>
+                    </a>
+                    <a class="header__store-btn header__store-btn--google" href="#" aria-label="Download for Android">
+                        <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt="" width="20"
+                            height="20">
+                        <span class="header__store-btn-text">Download for Android</span>
+                    </a>
+                </div>
+
+                <button type="button" class="mebubtn" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="site-nav">
+                    <img src="img/general/menu.png" alt="menu">
+                </button>
+            </div>
+            <div class="menu-overlay" aria-hidden="true"></div>
+        </header>
+
+        <main class="main">
+            <div class="glow-group">
+                <!-- якір -->
+                <div class="glow-anchor glow-anchor--hero" aria-hidden="true">
+                    <div class="glow-blob blob-pink"></div>
+                    <div class="glow-blob blob-purple"></div>
+                    <div class="glow-blob blob-orange"></div>
+                </div>
+
+                <section class="hero section--hero">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="section__content">
+                                    <span class="section__badge">
+                                        <img class="section__badge-icon" src="img/main/leaf.svg" alt="" width="20"
+                                            height="20">
+                                        Focus. Flow. Grow.
+                                    </span>
+                                    <h1 class="section__title">
+                                        The focus app<br>
+                                        that helps when your mind
+                                        <span>refuses to focus</span>
+                                    </h1>
+
+                                    <div class="section__text">
+                                        <p>
+                                            Create a calmer mind, reduce distractions, and become<br>
+                                            your focused self.
+                                        </p>
+                                    </div>
+
+                                    <div class="section__actions">
+                                        <a class="section__btn section__btn-appstore" href="#">
+                                            <span class="section__btn-inner">
+                                                <img class="section__btn-icon" src="img/general/apple.svg" alt=""
+                                                    width="32" height="32">
+                                                <span class="section__btn-text">
+                                                    <span class="section__btn-label">Download on the</span>
+                                                    <span class="section__btn-title">App Store</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="section__btn section__btn-playmarket" href="#">
+                                            <span class="section__btn-inner">
+                                                <img class="section__btn-icon" src="img/general/google-play.svg" alt=""
+                                                    width="32" height="32">
+                                                <span class="section__btn-text">
+                                                    <span class="section__btn-label">Get it on</span>
+                                                    <span class="section__btn-title">Google Play</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+
+                                    <ul class="section__features">
+                                        <li class="section__features-item">
+                                            <img class="section__features-icon" src="img/general/check-mark.svg" alt=""
+                                                width="20" height="20">
+                                            No credit card required
+                                        </li>
+                                        <li class="section__features-item">
+                                            <img class="section__features-icon" src="img/general/check-mark.svg" alt=""
+                                                width="20" height="20">
+                                            7 days full access
+                                        </li>
+                                        <li class="section__features-item">
+                                            <img class="section__features-icon" src="img/general/check-mark.svg" alt=""
+                                                width="20" height="20">
+                                            Free plan forever
+                                        </li>
+                                    </ul>
+
+                                    <div class="section__ratings" aria-label="App store ratings">
+                                        <div class="section__rating">
+                                            <img class="section__rating-icon" src="img/general/apple.svg" alt=""
+                                                width="20" height="20">
+                                            <div class="section__rating-stars" aria-hidden="true">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                            </div>
+                                            <div class="section__rating-meta">
+                                                <span class="section__rating-score">4,9</span>
+                                                <span class="section__rating-dot"></span>
+                                                <span class="section__rating-store">App Store</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="section__rating">
+                                            <img class="section__rating-icon" src="img/general/google-play-white.svg"
+                                                alt="" width="20" height="20">
+                                            <div class="section__rating-stars" aria-hidden="true">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                                <img src="img/general/star.svg" alt="" width="20" height="20">
+                                            </div>
+                                            <div class="section__rating-meta">
+                                                <span class="section__rating-score">4,8</span>
+                                                <span class="section__rating-dot"></span>
+                                                <span class="section__rating-store">Google Play</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <figure class="section__media">
+                                    <img class="section__media-img" src="img/main/hero.png" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- якір -->
+                <div class="glow-anchor glow-anchor--focus-timer" aria-hidden="true">
+                    <div class="glow-blob blob-orange"></div>
+                    <div class="glow-blob blob-pink"></div>
+                </div>
+
+                <section class="section--focus-timer">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 order-2 order-lg-1">
+                                <figure class="section__media">
+                                    <img class="section__media-img" src="img/main/focus-timer.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="col-lg-7 offset-lg-1 order-1 order-lg-2">
+                                <div class="section__content">
+                                    <div class="section__head">
+                                        <p class="section__tag">
+                                            <span class="section__tag-dot" aria-hidden="true"></span>
+                                            Focus Timer
+                                        </p>
+                                        <h2 class="section__title">
+                                            Too much going on<br>
+                                            <span>in your mind?</span>
+                                        </h2>
+                                        <div class="section__text">
+                                            <p>
+                                                Give your mind the calm environment it needs to enter deep focus.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <ul class="section__list">
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/main/icon-timer.svg" alt=""
+                                                    width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Focus Timer</h3>
+                                                <p class="section__list-text">Flexible sessions that match how you
+                                                    focus.</p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/main/icon-music.svg" alt=""
+                                                    width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Focus Soundscapes</h3>
+                                                <p class="section__list-text">Calming audio that helps your mind settle
+                                                    in.</p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/main/icon-reload.svg"
+                                                    alt="" width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Pomodoro Mode or Endless Focus</h3>
+                                                <p class="section__list-text">Choose structured Pomodoro sessions or
+                                                    uninterrupted deep work.</p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/main/icon-tag.svg" alt=""
+                                                    width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Focus Tags</h3>
+                                                <p class="section__list-text">
+                                                    Organize your sessions to uncover focus patterns.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <a class="section__link" href="#">
+                                        <span class="section__link-text">Focus Timer
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glow-blob glow-blob-red"></div>
+                    <div class="glow-blob glow-blob-yellow"></div>
+                </section>
+
+                <!-- якір -->
+                <div class="glow-anchor glow-anchor--features" aria-hidden="true">
+                    <div class="glow-blob blob-pink"></div>
+                </div>
+
+                <section class="section--features" id="features">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="section__header">
+                                    <p class="section__tag">
+                                        <span class="section__tag-dot" aria-hidden="true"></span>
+                                        Soft Blocking
+                                    </p>
+                                    <h2 class="section__title">
+                                        Opening apps without <span>thinking?</span>
+                                    </h2>
+                                    <div class="section__text">
+                                        <p>
+                                            Stop opening apps on autopilot and wondering where the last 30 minutes went.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row section__grid">
+                                    <div class="col-md-6">
+                                        <article class="section__card">
+                                            <div class="section__card-head">
+                                                <span class="section__card-icon">
+                                                    <img class="section__card-icon-img"
+                                                        src="img/main/softblocking-icon1.svg" alt="" width="28"
+                                                        height="28">
+                                                </span>
+                                                <div class="section__card-body">
+                                                    <h3 class="section__card-title">Block distracting apps</h3>
+                                                    <p class="section__card-text">Protect your focus when it matters
+                                                        most.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <figure class="section__card-media">
+                                                <img class="section__card-media-img"
+                                                    src="img/main/softblocking-img1.png" alt="">
+                                            </figure>
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <article class="section__card">
+                                            <div class="section__card-head">
+                                                <span class="section__card-icon">
+                                                    <img class="section__card-icon-img"
+                                                        src="img/main/softblocking-icon2.svg" alt="" width="28"
+                                                        height="28">
+                                                </span>
+                                                <div class="section__card-body">
+                                                    <h3 class="section__card-title">Reflect before opening apps</h3>
+                                                    <p class="section__card-text">A gentle pause before autopilot takes
+                                                        over.</p>
+                                                </div>
+                                            </div>
+                                            <figure class="section__card-media">
+                                                <img class="section__card-media-img"
+                                                    src="img/main/softblocking-img2.png" alt="">
+                                            </figure>
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <article class="section__card">
+                                            <div class="section__card-head">
+                                                <span class="section__card-icon">
+                                                    <img class="section__card-icon-img"
+                                                        src="img/main/softblocking-icon3.svg" alt="" width="28"
+                                                        height="28">
+                                                </span>
+                                                <div class="section__card-body">
+                                                    <h3 class="section__card-title">Break automatic scrolling</h3>
+                                                    <p class="section__card-text">Interrupt the loop before it starts
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <figure class="section__card-media">
+                                                <img class="section__card-media-img"
+                                                    src="img/main/softblocking-img3.png" alt="">
+                                            </figure>
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <article class="section__card">
+                                            <div class="section__card-head">
+                                                <span class="section__card-icon">
+                                                    <img class="section__card-icon-img"
+                                                        src="img/main/softblocking-icon4.svg" alt="" width="28"
+                                                        height="28">
+                                                </span>
+                                                <div class="section__card-body">
+                                                    <h3 class="section__card-title">Build better habits</h3>
+                                                    <p class="section__card-text">Small moments of awareness
+                                                        compound<br>into real change.</p>
+                                                </div>
+                                            </div>
+                                            <figure class="section__card-media">
+                                                <img class="section__card-media-img"
+                                                    src="img/main/softblocking-img4.png" alt="">
+                                            </figure>
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="section__footer">
+                                    <a class="section__link" href="#">
+                                        <span class="section__link-text">Soft Blocking
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- якір -->
+                <div class="glow-anchor glow-anchor--focus-insights" aria-hidden="true">
+                    <div class="glow-blob blob-pink"></div>
+                    <div class="glow-blob blob-purple"></div>
+                </div>
+
+                <section class="section--focus-insights">
+                    <div class="container">
+                        <div class="row align-items-end">
+                            <div class="col-lg-6 offset-lg-2">
+                                <div class="section__content">
+                                    <div class="section__head">
+                                        <p class="section__tag">
+                                            <span class="section__tag-dot" aria-hidden="true"></span>
+                                            Focus Insights
+                                        </p>
+                                        <h2 class="section__title">
+                                            Wonder why some days feel effortless<br>
+                                            <span>and others don't?</span>
+                                        </h2>
+                                        <div class="section__text">
+                                            <p>
+                                                Discover your patterns, see where your time goes, and learn what helps
+                                                you stay focused.
+                                            </p>
+                                        </div>
+                                        <img class="section__logo-element" src="img/main/logo-element.png" alt="logo">
+                                    </div>
+
+                                    <ul class="section__list">
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img"
+                                                    src="img/main/focus-insights-ic1.svg" alt="" width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Discover your focus patterns</h3>
+                                                <p class="section__list-text">
+                                                    See what your best sessions have in common
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img"
+                                                    src="img/main/focus-insights-ic2.svg" alt="" width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">See your days at a glance </h3>
+                                                <p class="section__list-text">A visual map of where your focus went</p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img"
+                                                    src="img/main/focus-insights-ic3.svg" alt="" width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Find your best focus times</h3>
+                                                <p class="section__list-text">
+                                                    Know when your mind is naturally at its sharpest
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img"
+                                                    src="img/main/focus-insights-ic4.svg" alt="" width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Get personalized insights</h3>
+                                                <p class="section__list-text">
+                                                    AI-powered patterns that help you work smarter
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <a class="section__link" href="#">
+                                        <span class="section__link-text">Insights
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <figure class="section__media">
+                                    <img class="section__media-img" src="img/main/focus-insights-mainimg.png" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <!-- якір -->
+                <div class="glow-anchor glow-anchor--focus-world" aria-hidden="true">
+                    <div class="glow-blob blob-pink"></div>
+                    <div class="glow-blob blob-purple"></div>
+                </div>
+
+                <section class="section--focus-world">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="section__head">
+                                    <p class="section__tag">
+                                        <span class="section__tag-dot" aria-hidden="true"></span>
+                                        Focus World
+                                    </p>
+
+                                    <h2 class="section__title">
+                                        Feel like <span>your progress</span>
+                                        disappears?
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 offset-lg-1">
+                                <div class="introbox">
+                                    <div class="section__text">
+                                        <p>
+                                            Real focus isn't built through perfect streaks. It's built through small
+                                            moments
+                                            of consistency. Every session helps your world grow, reminding you that
+                                            progress
+                                            is happening—even when it doesn't feel like it.
+                                        </p>
+                                    </div>
+                                    <a class="section__link" href="#">
+                                        <span class="section__link-text">Focus World
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline">
+                            <figure class="timeline__main">
+                                <img class="timeline__main-img" src="img/main/focus-world-main.png"
+                                    alt="Focus World app screen showing your growing world">
+                            </figure>
+
+                            <div class="timeline__content">
+                                <div class="timeline__stages" role="tablist" aria-label="Focus World growth stages">
+                                    <figure class="timeline__stage is-active" role="tab" aria-selected="true"
+                                        data-stage="0" tabindex="0">
+                                        <img class="timeline__stage-img" src="img/main/focus-world-stage-1.png"
+                                            alt="Stage 1 — A small start">
+                                    </figure>
+                                    <figure class="timeline__stage" role="tab" aria-selected="false" data-stage="1"
+                                        tabindex="-1">
+                                        <img class="timeline__stage-img" src="img/main/focus-world-stage-10.png"
+                                            alt="Stage 10 — Building momentum">
+                                    </figure>
+                                    <figure class="timeline__stage" role="tab" aria-selected="false" data-stage="2"
+                                        tabindex="-1">
+                                        <img class="timeline__stage-img" src="img/main/focus-world-stage-20.png"
+                                            alt="Stage 20 — Stronger every day">
+                                    </figure>
+                                    <figure class="timeline__stage" role="tab" aria-selected="false" data-stage="3"
+                                        tabindex="-1">
+                                        <img class="timeline__stage-img" src="img/main/focus-world-stage-30.png"
+                                            alt="Stage 30 — Your focused world">
+                                    </figure>
+                                </div>
+
+                                <div class="timeline__nav" aria-hidden="false">
+                                    <div class="timeline__track">
+                                        <button class="timeline__dot is-active" type="button" data-stage="0"
+                                            aria-label="Stage 1"></button>
+                                        <button class="timeline__dot" type="button" data-stage="1"
+                                            aria-label="Stage 10"></button>
+                                        <button class="timeline__dot" type="button" data-stage="2"
+                                            aria-label="Stage 20"></button>
+                                        <button class="timeline__dot" type="button" data-stage="3"
+                                            aria-label="Stage 30"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                    </div>
+                </section>
+
+
+            </div>
+
+
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__topsect">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a class="footer__logo" href="#">
+                                <img src="img/general/logo-footer.svg" alt="Floviu">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <nav class="footer__nav">
+                                <p class="title">Features</p>
+                                <ul>
+                                    <li><a href="#">Focus Timer</a></li>
+                                    <li><a href="#">Focus Protection</a></li>
+                                    <li><a href="#">Soundscapes</a></li>
+                                    <li><a href="#">Focus Insights</a></li>
+                                    <li><a href="#">Focus World</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <nav class="footer__nav">
+                                <p class="title">Resources</p>
+                                <ul>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">About Floviu</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="#">Reviews</a></li>
+                                </ul>
+                                <ul class="footer__downloads">
+                                    <li>
+                                        <a href="#">
+                                            Download for iOS
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Download for Android
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <nav class="footer__nav">
+                                <p class="title">Compare Floviu</p>
+                                <ul>
+                                    <li><a href="#">Floviu vs Forest</a></li>
+                                    <li><a href="#">Floviu vs Opal</a></li>
+                                    <li><a href="#">Floviu vs Brain.fm</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottsect">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-7 order-md-1 order-2">
+                            <p class="footer__copyright">
+                                © 2026 Floviu NextGen Content LLC. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-5 order-md-2 order-1">
+                            <ul class="footer__links">
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/glow-blobs.js"></script>
+    <script src="js/lib/swiper.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
