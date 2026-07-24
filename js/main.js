@@ -186,26 +186,26 @@ $('.closemenu, .menu-overlay').click(closeMobileMenu);
     });
   }
 
-  // Inline video play
-  $(document).on('click', '.videowrap__play', function () {
-    const $wrap = $(this).closest('.videowrap');
-    const videoEl = $wrap.find('.videowrap__video').get(0);
+  // Inline video play (для варіанту з кнопкою play)
+  // $(document).on('click', '.videowrap__play', function () {
+  //   const $wrap = $(this).closest('.videowrap');
+  //   const videoEl = $wrap.find('.videowrap__video').get(0);
 
-    if (!videoEl) {
-      return;
-    }
+  //   if (!videoEl) {
+  //     return;
+  //   }
 
-    const playPromise = videoEl.play();
-    if (playPromise && typeof playPromise.catch === 'function') {
-      playPromise.catch(function () {});
-    }
-  });
+  //   const playPromise = videoEl.play();
+  //   if (playPromise && typeof playPromise.catch === 'function') {
+  //     playPromise.catch(function () {});
+  //   }
+  // });
 
-  $(document).on('play', '.videowrap__video', function () {
-    $(this).closest('.videowrap').addClass('is-playing');
-  });
+  // $(document).on('play', '.videowrap__video', function () {
+  //   $(this).closest('.videowrap').addClass('is-playing');
+  // });
 
-  $(document).on('pause ended', '.videowrap__video', function () {
-    $(this).closest('.videowrap').removeClass('is-playing');
-  });
+  // $(document).on('pause ended', '.videowrap__video', function () {
+  //   $(this).closest('.videowrap').removeClass('is-playing');
+  // });
 })(jQuery);
