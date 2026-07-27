@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
+
+    <link rel="stylesheet" href="css/lib/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/lib/swiper.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="pagewrapper">
+        <header class="header">
+            <div class="container header__inner">
+                <a href="/" class="header__logo" aria-label="Floviu — home">
+                    <img class="header__logo-img" src="img/general/logo.svg" alt="Floviu" width="147" height="61">
+                </a>
+
+                <nav class="header__nav" aria-label="Main navigation">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a class="header__link" href="#">Features</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Pricing</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Resources</a>
+                        </li>
+                    </ul>
+                    <div class="header__actions" aria-label="Download">
+                        <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                            <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20"
+                                height="20">
+                            <span class="header__store-btn-text">Download for iOS</span>
+                        </a>
+                        <a class="header__store-btn header__store-btn--google" href="#"
+                            aria-label="Download for Android">
+                            <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt=""
+                                width="20" height="20">
+                            <span class="header__store-btn-text">Download for Android</span>
+                        </a>
+                    </div>
+                    <button type="button" class="closemenu" aria-label="Close Menu" aria-expanded="false"
+                        aria-controls="site-nav">
+                        <img src="img/general/close.png" alt="close">
+                    </button>
+                </nav>
+
+                <div class="header__actions" aria-label="Download">
+                    <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                        <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20" height="20">
+                        <span class="header__store-btn-text">Download for iOS</span>
+                    </a>
+                    <a class="header__store-btn header__store-btn--google" href="#" aria-label="Download for Android">
+                        <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt="" width="20"
+                            height="20">
+                        <span class="header__store-btn-text">Download for Android</span>
+                    </a>
+                </div>
+
+                <button type="button" class="mebubtn" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="site-nav">
+                    <img src="img/general/menu.png" alt="menu">
+                </button>
+            </div>
+            <div class="menu-overlay" aria-hidden="true"></div>
+        </header>
+
+        <main class="main">
+            <div class="glow-group">
+                <div class="glow-anchor glow-anchor--blog" aria-hidden="true">
+                    <div class="glow-blob blob-purple"></div>
+                    <div class="glow-blob blob-orange"></div>
+                    <div class="glow-blob blob-purple v2"></div>
+                    <div class="glow-blob blob-pink"></div>
+                   
+                    
+                </div>
+
+                <section class="section--blog">
+                    <div class="container">
+                        <div class="blog__header">
+                            <h1 class="section__title">
+                                Floviu <span>blog</span>
+                            </h1>
+                            <p>
+                                Building better focus starts with understanding it. Explore focus app reviews,
+                                evidence-based productivity tips, focus statistics, practical guides, and real stories
+                                that
+                                help you build lasting attention—one session at a time.
+                            </p>
+                        </div>
+                        <div class="filters">
+                            <div class="row align-items-end">
+                                <div class="col-lg-6">
+                                    <form class="blog-filter" action="#" method="get">
+                                        <fieldset class="blog-filter__fieldset">
+                                            <legend class="blog-filter__legend visually-hidden">Categories</legend>
+
+                                            <ul class="blog-filter__list" role="list">
+                                                <li class="blog-filter__item">
+                                                    <button class="blog-filter__pill is-active" type="button"
+                                                        aria-pressed="true" data-category="all">
+                                                        All
+                                                    </button>
+                                                </li>
+                                                <li class="blog-filter__item">
+                                                    <button class="blog-filter__pill" type="button" aria-pressed="false"
+                                                        data-category="adhd">
+                                                        ADHD
+                                                    </button>
+                                                </li>
+                                                <li class="blog-filter__item">
+                                                    <button class="blog-filter__pill" type="button" aria-pressed="false"
+                                                        data-category="focus">
+                                                        Focus
+                                                    </button>
+                                                </li>
+                                                <li class="blog-filter__item">
+                                                    <button class="blog-filter__pill" type="button" aria-pressed="false"
+                                                        data-category="habits">
+                                                        Habits
+                                                    </button>
+                                                </li>
+                                                <li class="blog-filter__item">
+                                                    <button class="blog-filter__pill" type="button" aria-pressed="false"
+                                                        data-category="science">
+                                                        Science
+                                                    </button>
+                                                </li>
+                                                <li class="blog-filter__item">
+                                                    <button class="blog-filter__pill" type="button" aria-pressed="false"
+                                                        data-category="mindfulness">
+                                                        Mindfulness
+                                                    </button>
+                                                </li>
+                                                <li class="blog-filter__item">
+                                                    <button class="blog-filter__pill" type="button" aria-pressed="false"
+                                                        data-category="app-tips">
+                                                        App Tips
+                                                    </button>
+                                                </li>
+                                            </ul>
+
+                                            <input type="hidden" name="category" value="all">
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <div class="col-lg-5 offset-lg-1">
+                                    <form class="blog-search" action="#" method="get" role="search">
+                                        <label class="blog-search__label visually-hidden" for="blog-search">
+                                            Search
+                                        </label>
+                                        <input class="blog-search__input" id="blog-search" name="s" type="search"
+                                            placeholder="Search articles..." autocomplete="off">
+                                        <button class="blog-search__btn" type="submit" aria-label="Search">
+                                            <img class="blog-search__icon" src="img/general/search-icon.svg" alt=""
+                                                width="24" height="24">
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-items">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic1.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">Why You Can't Focus (And It's Not Laziness)
+                                                </h3>
+                                                <p class="blog-item__excerpt">Understand the science behind distraction
+                                                    and
+                                                    how to regain control.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">Science</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic2.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">The 5-Minute Rule That Beats
+                                                    Procrastination
+                                                </h3>
+                                                <p class="blog-item__excerpt">A simple habit to start difficult tasks
+                                                    without relying on motivation.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic3.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">How to Stop Doomscrolling Without Deleting
+                                                    Social Media
+                                                </h3>
+                                                <p class="blog-item__excerpt">Practical strategies to reduce mindless
+                                                    scrolling while keeping the apps you enjoy.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">Science</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic4.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">Deep Work vs. Multitasking: What Actually
+                                                    Gets
+                                                    More Done?
+                                                </h3>
+                                                <p class="blog-item__excerpt">Learn why focused work outperforms
+                                                    constant
+                                                    task switching.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic2.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">The 5-Minute Rule That Beats
+                                                    Procrastination
+                                                </h3>
+                                                <p class="blog-item__excerpt">A simple habit to start difficult tasks
+                                                    without relying on motivation.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic4.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">Deep Work vs. Multitasking: What Actually
+                                                    Gets
+                                                    More Done?
+                                                </h3>
+                                                <p class="blog-item__excerpt">Learn why focused work outperforms
+                                                    constant
+                                                    task switching.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic2.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">The 5-Minute Rule That Beats
+                                                    Procrastination
+                                                </h3>
+                                                <p class="blog-item__excerpt">A simple habit to start difficult tasks
+                                                    without relying on motivation.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic1.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">Why You Can't Focus (And It's Not Laziness)
+                                                </h3>
+                                                <p class="blog-item__excerpt">Understand the science behind distraction
+                                                    and
+                                                    how to regain control.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">Science</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic2.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">The 5-Minute Rule That Beats
+                                                    Procrastination
+                                                </h3>
+                                                <p class="blog-item__excerpt">A simple habit to start difficult tasks
+                                                    without relying on motivation.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic4.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">Deep Work vs. Multitasking: What Actually
+                                                    Gets
+                                                    More Done?
+                                                </h3>
+                                                <p class="blog-item__excerpt">Learn why focused work outperforms
+                                                    constant
+                                                    task switching.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic2.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">The 5-Minute Rule That Beats
+                                                    Procrastination
+                                                </h3>
+                                                <p class="blog-item__excerpt">A simple habit to start difficult tasks
+                                                    without relying on motivation.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">RESEARCH</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <article class="blog-item">
+                                        <a class="blog-item__link" href="#">
+                                            <div class="blog-item__image">
+                                                <img class="blog-item__img" src="img/blog/blogpic1.png" alt="img">
+                                            </div>
+
+                                            <div class="blog-item__content">
+                                                <h3 class="blog-item__title">Why You Can't Focus (And It's Not Laziness)
+                                                </h3>
+                                                <p class="blog-item__excerpt">Understand the science behind distraction
+                                                    and
+                                                    how to regain control.</p>
+                                            </div>
+
+                                            <div class="blog-item__meta">
+                                                <span class="blog-item__category" aria-label="Category">Science</span>
+                                                <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="blog-items__more">
+                                <button class="section__link" type="button">
+                                    <span class="section__link-text">
+                                        Load more
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section--custom-post">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 col-md-5">
+                                <div class="custom-post__imagebox">
+                                    <img class="custom-post__img" src="img/blog/custom-post.jpg" alt="img">
+                                </div>
+                            </div>
+                            <div class="col-md-7 offset-lg-1">
+                                <div class="custom-post__content">
+                                    <div class="custom-post__tags">
+                                        <span class="custom-post__tag">Research</span>
+                                    </div>
+                                    <h2 class="custom-post__title">
+                                        "Small changes in your environment can dramatically improve your ability to
+                                        concentrate."
+                                    </h2>
+                                    <p>
+                                        Learn why visual clutter, notifications, and constant context switching drain
+                                        mental
+                                        energy—and how to design a workspace that supports deep focus.
+                                    </p>
+                                    <a href="#">
+                                        Read article
+                                        <img src="img/main/arrow.svg" alt="iocn">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cta-v2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-8">
+                                <div class="cta-v2__content">
+                                    <h2 class="section__title">
+                                        Try Floviu <span class="section__title-gradient">for free</span>
+                                    </h2>
+                                    <p>
+                                        Start your first focus session today and build habits that last.
+                                    </p>
+                                    <div class="section__actions">
+                                        <a class="section__btn" href="#" aria-label="Download on the App Store">
+                                            <span class="section__btn-inner">
+                                                <img class="section__btn-icon" src="img/general/apple.svg" alt=""
+                                                    width="32" height="32" aria-hidden="true">
+                                                <span class="section__btn-text">
+                                                    <span class="section__btn-label">Download on the</span>
+                                                    <span class="section__btn-title">App Store</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="section__btn section__btn-playmarket" href="#"
+                                            aria-label="Get it on Google Play">
+                                            <span class="section__btn-inner">
+                                                <img class="section__btn-icon" src="img/general/google-play.svg" alt=""
+                                                    width="32" height="32" aria-hidden="true">
+                                                <span class="section__btn-text">
+                                                    <span class="section__btn-label">Get it on</span>
+                                                    <span class="section__btn-title">Google Play</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <ul class="section__features">
+                                        <li class="section__features-item">
+                                            <img class="section__features-icon" src="img/general/check-mark.svg" alt=""
+                                                width="20" height="20" aria-hidden="true">
+                                            No credit card required
+                                        </li>
+                                        <li class="section__features-item">
+                                            <img class="section__features-icon" src="img/general/check-mark.svg" alt=""
+                                                width="20" height="20" aria-hidden="true">
+                                            7 days full access
+                                        </li>
+                                        <li class="section__features-item">
+                                            <img class="section__features-icon" src="img/general/check-mark.svg" alt=""
+                                                width="20" height="20" aria-hidden="true">
+                                            Free plan forever
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <figure class="cta-v2__media" aria-hidden="true">
+                        <img class="cta-v2__media-img cta-v2__media-img--top" src="img/blog/cta-topimg.png" alt=""
+                            width="244" height="271" loading="lazy">
+                        <img class="cta-v2__media-img cta-v2__media-img--bottom" src="img/blog/cta-bottomimg.png" alt=""
+                            width="241" height="258" loading="lazy">
+                    </figure>
+                </section>
+
+            </div>
+
+
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__topsect">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a class="footer__logo" href="#">
+                                <img src="img/general/logo-footer.svg" alt="Floviu">
+                            </a>
+                            <ul class="footer__social-list">
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/youtube.svg" alt="youtube">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/ln.svg" alt="linkedin">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/x.svg" alt="x">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/instagram.svg" alt="instagram">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/tiktok.svg" alt="tiktok">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Features</p>
+                                <ul>
+                                    <li><a href="#">Focus Timer</a></li>
+                                    <li><a href="#">Focus Protection</a></li>
+                                    <li><a href="#">Soundscapes</a></li>
+                                    <li><a href="#">Focus Insights</a></li>
+                                    <li><a href="#">Focus World</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Resources</p>
+                                <ul>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">About Floviu</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="#">Reviews</a></li>
+                                </ul>
+                                <ul class="footer__downloads">
+                                    <li>
+                                        <a href="#">
+                                            Download for iOS
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Download for Android
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Compare Floviu</p>
+                                <ul>
+                                    <li><a href="#">Floviu vs Forest</a></li>
+                                    <li><a href="#">Floviu vs Opal</a></li>
+                                    <li><a href="#">Floviu vs Brain.fm</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottsect">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-7">
+                            <p class="footer__copyright">
+                                © 2026 Floviu NextGen Content LLC. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-5">
+                            <ul class="footer__links">
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/glow-blobs.js"></script>
+    <script src="js/lib/swiper.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>

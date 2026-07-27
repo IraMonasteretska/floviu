@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
+
+    <link rel="stylesheet" href="css/lib/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/lib/swiper.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="pagewrapper">
+        <header class="header">
+            <div class="container header__inner">
+                <a href="/" class="header__logo" aria-label="Floviu — home">
+                    <img class="header__logo-img" src="img/general/logo.svg" alt="Floviu" width="147" height="61">
+                </a>
+
+                <nav class="header__nav" aria-label="Main navigation">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a class="header__link" href="#">Features</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Pricing</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Resources</a>
+                        </li>
+                    </ul>
+                    <div class="header__actions" aria-label="Download">
+                        <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                            <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20"
+                                height="20">
+                            <span class="header__store-btn-text">Download for iOS</span>
+                        </a>
+                        <a class="header__store-btn header__store-btn--google" href="#"
+                            aria-label="Download for Android">
+                            <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt=""
+                                width="20" height="20">
+                            <span class="header__store-btn-text">Download for Android</span>
+                        </a>
+                    </div>
+                    <button type="button" class="closemenu" aria-label="Close Menu" aria-expanded="false"
+                        aria-controls="site-nav">
+                        <img src="img/general/close.png" alt="close">
+                    </button>
+                </nav>
+
+                <div class="header__actions" aria-label="Download">
+                    <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                        <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20" height="20">
+                        <span class="header__store-btn-text">Download for iOS</span>
+                    </a>
+                    <a class="header__store-btn header__store-btn--google" href="#" aria-label="Download for Android">
+                        <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt="" width="20"
+                            height="20">
+                        <span class="header__store-btn-text">Download for Android</span>
+                    </a>
+                </div>
+
+                <button type="button" class="mebubtn" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="site-nav">
+                    <img src="img/general/menu.png" alt="menu">
+                </button>
+            </div>
+            <div class="menu-overlay" aria-hidden="true"></div>
+        </header>
+
+        <main class="main">
+            <div class="glow-group">
+                <div class="glow-anchor glow-anchor--article" aria-hidden="true">
+                    <div class="glow-blob blob-purple"></div>
+                    <div class="glow-blob blob-purple v2"></div>
+                    <div class="glow-blob blob-pink"></div>
+                    <div class="glow-blob blob-orange"></div>
+                    <div class="glow-blob blob-purple v3"></div>
+                </div>
+
+                <section class="section--article">
+                    <div class="article__hero">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="breadcrumbs">
+                                        <ul class="breadcrumbs__list">
+                                            <li>
+                                                <a href="#">Blog</a>
+                                            </li>
+                                            <li>
+                                                Psychology
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h1>
+                                        Why Your Brain Keeps Opening Instagram Without Thinking
+                                    </h1>
+                                    <p>
+                                        The science behind automatic behaviors—and five ways to interrupt the loop
+                                        before it
+                                        starts.
+                                    </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="article__hero-imagebox">
+                                        <img src="img/article/article-mainimg.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article__body">
+                        <div class="container">
+                            <div class="d-flex">
+                                <div class="col-left">
+                                    <div class="article-leftinfo">
+                                        <div class="author-leftinfo">
+                                            <div class="imgwrap">
+                                                <img src="img/article/author.png" alt="img">
+                                            </div>
+                                            <p class="name">Emma Carter</p>
+                                            <p class="position">Productivity Researcher</p>
+                                            <ul class="social-list">
+                                                <li>
+                                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                                        <img src="img/article/ln-icon.svg" alt="linkedin">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="datepost">
+                                                <span>6 min read</span> • <span>June 12, 2026</span>
+                                            </div>
+                                        </div>
+                                        <div class="sharebox">
+                                            <p class="title">Share the article</p>
+                                            <p>
+                                                Enjoy this article? <br>
+                                                Sgare it with someone
+                                                who needs better focus.
+                                            </p>
+                                            <ul class="share-list">
+                                                <li>
+                                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                                        <img src="img/article/x-icon.svg" alt="x">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                                        <img src="img/article/ln-icon.svg" alt="linkedin">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                                        <img src="img/article/fb-icon.svg" alt="facebook">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                                        <img src="img/article/share-icon.svg" alt="share">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-middle">
+                                    <article>
+                                        <div class="tl-dr">
+                                            <p class="tl-dr__title"><span>TL;DR</span></p>
+                                            <ul class="tl-dr__list">
+                                                <li>
+                                                    Your brain relies on habit loops more than conscious decisions.
+                                                </li>
+                                                <li>
+                                                    Social media apps are designed to become part of those automatic
+                                                    routines.
+                                                </li>
+                                                <li>
+                                                    A simple pause before opening an app can help you regain control of
+                                                    your attention.
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="article-content">
+                                            <h2>
+                                                You pick up your phone to check the weather. Seconds later, you're
+                                                scrolling
+                                                Instagram.
+                                            </h2>
+                                            <p>
+                                                You don't remember tapping the app. It simply happened.
+                                                This isn't unusual. Many of our daily actions are automatic, driven by
+                                                habits that require almost no conscious thought. Social media platforms
+                                                are
+                                                designed to become part of these routines, making them easy to open
+                                                whenever
+                                                your brain is searching for stimulation.
+                                            </p>
+
+                                            <div class="article-tip" aria-label="Tip">
+                                                <img class="article-tip__icon" src="img/article/lightbulb.svg"
+                                                    alt="icon" width="24" height="24">
+                                                <p class="article-tip__text">
+                                                    Tip: Before opening Instagram, take one deep breath and ask
+                                                    yourself,
+                                                    "Why am I opening this right now?" That single pause is enough to
+                                                    interrupt the habit loop.
+                                                </p>
+                                            </div>
+
+                                            <h2>The Habit Loop</h2>
+                                            <p>
+                                                Psychologists describe habits as a simple loop:<br><br>
+                                                Cue → Routine → Reward<br><br>
+                                                A cue triggers a behavior, the routine becomes automatic, and the reward
+                                                reinforces the habit.
+                                            </p>
+                                            <p>For example:</p>
+                                            <ul>
+                                                <li>
+                                                    You feel bored.
+                                                </li>
+                                                <li>
+                                                    You open Instagram.
+                                                </li>
+                                                <li>You receive novelty, entertainment, or social interaction.</li>
+                                                <li>
+                                                    Your brain remembers that checking Instagram feels rewarding.
+                                                </li>
+                                            </ul>
+                                            <p>
+                                                Over time, this loop becomes automatic.
+                                            </p>
+                                            <h2>Why Social Apps Are So Hard to Resist</h2>
+                                            <h4>Endless Novelty</h4>
+                                            <p>
+                                                Your brain is naturally drawn to new information. Every refresh offers
+                                                different content, creating a powerful sense of curiosity.
+                                            </p>
+                                            <h4>Variable Rewards</h4>
+                                            <p>
+                                                Sometimes there's an exciting post, message, or notification. Sometimes
+                                                there isn't. This unpredictability keeps people coming back, much like
+                                                pulling a slot machine.
+                                            </p>
+                                            <h4>Instant Gratification</h4>
+                                            <p>
+                                                Unlike meaningful work, social media provides immediate feedback with
+                                                almost
+                                                no effort.
+                                            </p>
+                                            <img src="img/article/articlepic1.jpg" alt="img">
+                                            <h3>The Cost of Automatic Scrolling</h3>
+                                            <p>Checking Instagram for "just a minute" often becomes much longer.</p>
+                                            <p>Frequent interruptions can:</p>
+                                            <ul>
+                                                <li>Break concentration</li>
+                                                <li>Reduce productivity</li>
+                                                <li>Increase mental fatigue</li>
+                                                <li>Make deep work more difficult</li>
+                                                <li>Leave you feeling less satisfied afterward</li>
+                                            </ul>
+                                            <p>The issue isn't using social media—it's using it without intention.</p>
+                                            <h3>Final Thoughts</h3>
+                                            <p>
+                                                Your brain isn't trying to waste your time—it simply follows the habits
+                                                you've repeated hundreds of times.
+                                            </p>
+                                            <p>
+                                                The encouraging news is that habits can be redesigned. By recognizing
+                                                your
+                                                triggers, adding small moments of awareness, and creating a healthier
+                                                digital environment, you can gradually replace unconscious scrolling
+                                                with
+                                                intentional action.
+                                            </p>
+                                            <p>
+                                                Focus isn't about resisting temptation every minute of the day. It's
+                                                about
+                                                making better choices easier.
+                                            </p>
+                                        </div>
+
+                                        <div class="about-author">
+                                            <div class="about-author__header">
+                                                <div class="imgwrap">
+                                                    <img src="img/article/author.png" alt="img">
+                                                </div>
+                                                <div class="author-info">
+                                                    <p class="name">Emma Carter</p>
+                                                    <p class="position">Productivity Researcher</p>
+                                                </div>
+                                                <ul class="social-list">
+                                                    <li>
+                                                        <a href="#" target="_blank" rel="noopener noreferrer">
+                                                            <img src="img/article/ln-icon.svg" alt="linkedin">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="about-author__body">
+                                                <p>
+                                                    Emma researches the science behind attention, habits, and digital
+                                                    wellbeing. She turns findings from psychology and neuroscience into
+                                                    practical strategies that help people reduce distractions, build
+                                                    lasting
+                                                    focus habits, and create healthier relationships with technology.
+                                                </p>
+                                            </div>
+                                            <div class="about-author__topics">
+                                                <p>Topics: Focus • Habits • Psychology • Digital Wellbeing •
+                                                    Productivity
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-right">
+                                    <div class="sticky-container">
+                                        <div class="onpage-nav">
+                                            <p class="title">In this article</p>
+                                            <ul>
+                                                <li class="active">
+                                                    <a href="#">
+                                                        Introduction: Why You Open Instagram Without Realizing
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        The Habit Loop: Cue → Routine → Reward
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        Why Your Brain Loves Automatic Behaviors
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        How Social Media Reinforces the Habit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        Triggers That Make You Reach for Your Phone
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        Why Willpower Isn't Enough
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        Final Thoughts: Build Intentional Attention
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="sidecta">
+                                            <h4 class="title">Ready to try Floviu?</h4>
+                                            <img class="sidecta__img" src="img/article/ctapic.jpg" alt="img">
+                                            <a href="#" class="sidecta__btn">
+                                                Get Started
+                                                <img src="img/main/arrow.svg" alt="iocn">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="latest-articles">
+                        <div class="container">
+                            <h2 class="section__title">Latest Articles</h2>
+                            <div class="blog-items">
+                                <div class="row">
+                                    <div class="col-lg-3 col-sm-6">
+                                        <article class="blog-item">
+                                            <a class="blog-item__link" href="#">
+                                                <div class="blog-item__image">
+                                                    <img class="blog-item__img" src="img/blog/blogpic1.png" alt="img">
+                                                </div>
+
+                                                <div class="blog-item__content">
+                                                    <h3 class="blog-item__title">Why You Can't Focus (And It's Not
+                                                        Laziness)
+                                                    </h3>
+                                                    <p class="blog-item__excerpt">Understand the science behind
+                                                        distraction
+                                                        and
+                                                        how to regain control.</p>
+                                                </div>
+
+                                                <div class="blog-item__meta">
+                                                    <span class="blog-item__category"
+                                                        aria-label="Category">Science</span>
+                                                    <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                                </div>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <article class="blog-item">
+                                            <a class="blog-item__link" href="#">
+                                                <div class="blog-item__image">
+                                                    <img class="blog-item__img" src="img/blog/blogpic2.png" alt="img">
+                                                </div>
+
+                                                <div class="blog-item__content">
+                                                    <h3 class="blog-item__title">The 5-Minute Rule That Beats
+                                                        Procrastination
+                                                    </h3>
+                                                    <p class="blog-item__excerpt">A simple habit to start difficult
+                                                        tasks
+                                                        without relying on motivation.</p>
+                                                </div>
+
+                                                <div class="blog-item__meta">
+                                                    <span class="blog-item__category"
+                                                        aria-label="Category">RESEARCH</span>
+                                                    <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                                </div>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <article class="blog-item">
+                                            <a class="blog-item__link" href="#">
+                                                <div class="blog-item__image">
+                                                    <img class="blog-item__img" src="img/blog/blogpic3.png" alt="img">
+                                                </div>
+
+                                                <div class="blog-item__content">
+                                                    <h3 class="blog-item__title">How to Stop Doomscrolling Without
+                                                        Deleting
+                                                        Social Media
+                                                    </h3>
+                                                    <p class="blog-item__excerpt">Practical strategies to reduce
+                                                        mindless
+                                                        scrolling while keeping the apps you enjoy.</p>
+                                                </div>
+
+                                                <div class="blog-item__meta">
+                                                    <span class="blog-item__category"
+                                                        aria-label="Category">Science</span>
+                                                    <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                                </div>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <article class="blog-item">
+                                            <a class="blog-item__link" href="#">
+                                                <div class="blog-item__image">
+                                                    <img class="blog-item__img" src="img/blog/blogpic4.png" alt="img">
+                                                </div>
+
+                                                <div class="blog-item__content">
+                                                    <h3 class="blog-item__title">Deep Work vs. Multitasking: What
+                                                        Actually
+                                                        Gets
+                                                        More Done?
+                                                    </h3>
+                                                    <p class="blog-item__excerpt">Learn why focused work outperforms
+                                                        constant
+                                                        task switching.</p>
+                                                </div>
+
+                                                <div class="blog-item__meta">
+                                                    <span class="blog-item__category"
+                                                        aria-label="Category">RESEARCH</span>
+                                                    <time class="blog-item__date" datetime="2026-06">June 2026</time>
+                                                </div>
+                                            </a>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+            </div>
+
+
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__topsect">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a class="footer__logo" href="#">
+                                <img src="img/general/logo-footer.svg" alt="Floviu">
+                            </a>
+                            <ul class="footer__social-list">
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/youtube.svg" alt="youtube">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/ln.svg" alt="linkedin">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/x.svg" alt="x">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/instagram.svg" alt="instagram">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/tiktok.svg" alt="tiktok">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Features</p>
+                                <ul>
+                                    <li><a href="#">Focus Timer</a></li>
+                                    <li><a href="#">Focus Protection</a></li>
+                                    <li><a href="#">Soundscapes</a></li>
+                                    <li><a href="#">Focus Insights</a></li>
+                                    <li><a href="#">Focus World</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Resources</p>
+                                <ul>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">About Floviu</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="#">Reviews</a></li>
+                                </ul>
+                                <ul class="footer__downloads">
+                                    <li>
+                                        <a href="#">
+                                            Download for iOS
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Download for Android
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Compare Floviu</p>
+                                <ul>
+                                    <li><a href="#">Floviu vs Forest</a></li>
+                                    <li><a href="#">Floviu vs Opal</a></li>
+                                    <li><a href="#">Floviu vs Brain.fm</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottsect">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-7">
+                            <p class="footer__copyright">
+                                © 2026 Floviu NextGen Content LLC. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-5">
+                            <ul class="footer__links">
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/glow-blobs.js"></script>
+    <script src="js/lib/swiper.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
