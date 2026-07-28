@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Focus Timer</title>
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
+
+    <link rel="stylesheet" href="css/lib/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/lib/swiper.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="pagewrapper">
+        <header class="header">
+            <div class="container header__inner">
+                <a href="/" class="header__logo" aria-label="Floviu — home">
+                    <img class="header__logo-img" src="img/general/logo.svg" alt="Floviu" width="147" height="61">
+                </a>
+
+                <nav class="header__nav" aria-label="Main navigation">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a class="header__link" href="#">Features</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Pricing</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Resources</a>
+                        </li>
+                    </ul>
+                    <div class="header__actions" aria-label="Download">
+                        <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                            <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20"
+                                height="20">
+                            <span class="header__store-btn-text">Download for iOS</span>
+                        </a>
+                        <a class="header__store-btn header__store-btn--google" href="#"
+                            aria-label="Download for Android">
+                            <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt=""
+                                width="20" height="20">
+                            <span class="header__store-btn-text">Download for Android</span>
+                        </a>
+                    </div>
+                    <button type="button" class="closemenu" aria-label="Close Menu" aria-expanded="false"
+                        aria-controls="site-nav">
+                        <img src="img/general/close.png" alt="close">
+                    </button>
+                </nav>
+
+                <div class="header__actions" aria-label="Download">
+                    <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                        <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20" height="20">
+                        <span class="header__store-btn-text">Download for iOS</span>
+                    </a>
+                    <a class="header__store-btn header__store-btn--google" href="#" aria-label="Download for Android">
+                        <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt="" width="20"
+                            height="20">
+                        <span class="header__store-btn-text">Download for Android</span>
+                    </a>
+                </div>
+
+                <button type="button" class="mebubtn" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="site-nav">
+                    <img src="img/general/menu.png" alt="menu">
+                </button>
+            </div>
+            <div class="menu-overlay" aria-hidden="true"></div>
+        </header>
+
+        <main class="main">
+            <div class="glow-group">
+                <div class="glow-anchor glow-anchor--featurehero" aria-hidden="true">
+                    <div class="glow-blob blob-purple"></div>
+                    <div class="glow-blob blob-orange"></div>
+                    <div class="glow-blob blob-blue"></div>
+                </div>
+
+                <section class="fs-hero fs-hero-featuresingle">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="fs-hero__content">
+                                    <div class="fs-hero__label">
+                                        <img class="section__list-icon-img" src="img/main/icon-timer.svg" alt="">
+                                        Focus Timer
+                                    </div>
+                                    <h1 class="section__title">
+                                        A focus timer that helps you
+                                        <span>enter deep work</span>
+                                    </h1>
+                                    <p class="fs-hero__text">
+                                        Create the right environment to calm distractions, <br>
+                                        build momentum, and stay focused longer.
+                                    </p>
+                                    <div class="section__actions">
+                                        <a class="section__btn" href="#">
+                                            <span class="section__btn-inner">
+                                                <img class="section__btn-icon" src="img/general/apple.svg" alt=""
+                                                    width="32" height="32">
+                                                <span class="section__btn-text">
+                                                    <span class="section__btn-label">Download on the</span>
+                                                    <span class="section__btn-title">App Store</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="section__btn" href="#">
+                                            <span class="section__btn-inner">
+                                                <img class="section__btn-icon" src="img/general/google-play.svg" alt=""
+                                                    width="32" height="32">
+                                                <span class="section__btn-text">
+                                                    <span class="section__btn-label">Get it on</span>
+                                                    <span class="section__btn-title">Google Play</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 offset-lg-1">
+                                <!-- Варіант 1: відео (грає в блоці) -->
+                                <!-- <div class="fs-hero__media fs-hero__media--video"> -->
+                                <!-- Старий варіант: play-кнопка + старт по кліку
+                                <div class="videowrap">
+                                    <video class="videowrap__video" poster="img/features/video-poster.png" controls
+                                        playsinline preload="none">
+                                        <source src="video/test.mp4" type="video/mp4">
+                                    </video>
+                                    <button class="videowrap__play" type="button" aria-label="Play video"></button>
+                                </div>
+                                -->
+
+                                <!-- Автоплей (muted потрібен для автозапуску в браузерах) -->
+                                <!-- <div class="videowrap videowrap--autoplay">
+                                    <video class="videowrap__video" autoplay muted loop playsinline preload="auto">
+                                        <source src="video/test.mp4" type="video/mp4">
+                                    </video>
+                                </div> -->
+                                <!-- </div> -->
+
+                                <!-- Варіант 2: просто фото -->
+                                <div class="fs-hero__media">
+                                    <div class=" fs-hero__media--phone">
+                                        <img class="fs-hero__media-img" src="img/features/features-hero.png" alt="hero"
+                                            width="554" height="360">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="fs-infosection">
+                    <div class="container">
+                        <div class="fs-testimonials">
+                            <div class="fs-testimonial">
+                                <div class="stars">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                </div>
+                                <p class="fs-testimonial__text">
+                                    "The timer makes it incredibly easy to get started. Once I press Start, I just keep
+                                    going."
+                                </p>
+                                <p class="fs-testimonial__author">@marcusw — App Store review</p>
+                            </div>
+                            <div class="fs-testimonial">
+                                <div class="stars">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                </div>
+                                <p class="fs-testimonial__text">
+                                    "I stopped procrastinating because Floviu removed the friction of beginning a task."
+                                </p>
+                                <p class="fs-testimonial__author">@marcusw — App Store review</p>
+                            </div>
+                            <div class="fs-testimonial">
+                                <div class="stars">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                    <img src="img/general/star.svg" alt="" width="20" height="20">
+                                </div>
+                                <p class="fs-testimonial__text">
+                                    I love having both Pomodoro and Open Focus. I use a different mode depending on the
+                                    day."
+                                </p>
+                                <p class="fs-testimonial__author">@marcusw — App Store review</p>
+                            </div>
+                        </div>
+                        <!-- <div class="fs-info">
+                        <div class="fs-info__box">
+                            <p class="title">⭐ 4.9</p>
+                            <p class="descr">App Store rating</p>
+                        </div>
+                        <div class="fs-info__box">
+                            <p class="title">2.4M+</p>
+                            <p class="descr">Focus sessions started</p>
+                        </div>
+                        <div class="fs-info__box">
+                            <p class="title">38h</p>
+                            <p class="descr">Avg monthly focus</p>
+                        </div>
+                    </div> -->
+                    </div>
+                </section>
+
+                <!-- якір -->
+                <div class="glow-anchor glow-anchor--featuregs" aria-hidden="true">
+                    <div class="glow-blob blob-purple"></div>
+                </div>
+                <section class="getting-started">
+                    <div class="container">
+                        <div class="section__head">
+                            <h2 class="section__title">
+                                Struggle with
+                                <span>getting started?</span>
+                            </h2>
+
+                            <div class="section__text">
+                                <p>
+                                    Focus isn't a switch. Whether you need structure or freedom, <br>
+                                    Floviu helps you start in the way that works for you.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 orer-1 order-lg-1">
+                                <div class="gs__col">
+                                    <div class="gs__col__header">
+                                        <div class="iconwrap">
+                                            <img src="img/features/alarm-clock-purple.svg" alt="img">
+                                        </div>
+                                        <div class="descr">
+                                            <h3>Focus Sprint</h3>
+                                            <p>
+                                                When you need a clear goal and fewer distractions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="gs__col__body">
+                                        <p>
+                                            Set your time, select the sound, and give your mind one thing to focus on.
+                                        </p>
+                                        <div class="gs__label">
+                                            <span>Perfect for:</span>
+                                        </div>
+                                        <ul>
+                                            <li>Deep work</li>
+                                            <li>Important tasks</li>
+                                            <li>Writing</li>
+                                            <li>Studying</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 order-3 order-lg-2">
+                                <div class="imgwrap">
+                                    <img src="img/features/getting-started-img.png" alt="img">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 order-2 order-lg-3">
+                                <div class="gs__col gs__col__blue">
+                                    <div class="gs__col__header">
+                                        <div class="iconwrap">
+                                            <img src="img/features/ri_infinity-fill.svg" alt="img">
+                                        </div>
+                                        <div class="descr">
+                                            <h3>Open Focus</h3>
+                                            <p>
+                                                When you want to stay focused without watching the clock.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="gs__col__body">
+                                        <p>
+                                            No countdown. No pressure. Start focusing and let Floviu track your progress
+                                            while you stay in flow.
+                                        </p>
+                                        <div class="gs__label">
+                                            <span>Perfect for:</span>
+                                        </div>
+                                        <ul>
+                                            <li>Creative work</li>
+                                            <li>Reading</li>
+                                            <li>Coding</li>
+                                            <li>Long focus sessions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section--focus-timer featuresingle">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-5 col-lg-6 order-2 order-lg-1">
+                                <figure class="section__media">
+                                    <img class="section__media-img" src="img/features/feature1.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="col-xl-6 offset-xl-1 col-lg-6 order-1 order-lg-2">
+                                <div class="section__content">
+                                    <div class="section__head">
+                                        <!-- <p class="section__tag">
+                                        <span class="section__tag-dot" aria-hidden="true"></span>
+                                        Focus environment
+                                    </p> -->
+
+                                        <h2 class="section__title">
+                                            Too much going on<br>
+                                            <span>in your mind?</span>
+                                        </h2>
+
+                                        <div class="section__text">
+                                            <p>
+                                                Create a calmer space that helps your brain enter focus mode.<br>
+                                                Customize
+                                                your sessions with:
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <ul class="section__list">
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/features/fe-ic1.svg" alt=""
+                                                    width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Brain dump your thoughts</h3>
+                                                <p class="section__list-text">Clear your head before you begin</p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/features/fe-ic2.png" alt=""
+                                                    width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Choose focus soundscapes</h3>
+                                                <p class="section__list-text">Rain, café, forest, lo-fi, brown noise</p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/features/fe-ic3.svg" alt=""
+                                                    width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Organize with focus tags</h3>
+                                                <p class="section__list-text">Track what you're working on</p>
+                                            </div>
+                                        </li>
+                                        <li class="section__list-item">
+                                            <span class="section__list-icon">
+                                                <img class="section__list-icon-img" src="img/features/fe-ic4.svg" alt=""
+                                                    width="28" height="28">
+                                            </span>
+                                            <div class="section__list-body">
+                                                <h3 class="section__list-title">Turn on distraction protection</h3>
+                                                <p class="section__list-text">Block apps automatically while you focus
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- <p class="gradient-text">
+                                    Your focus environment becomes a signal: it's time to focus.
+                                </p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <img class="focus-timer__bg" src="img/features/logo-bg.png" alt="bg">
+
+
+                </section>
+
+                <!-- якір -->
+                <div class="glow-anchor glow-anchor--feature3" aria-hidden="true">
+                    <div class="glow-blob blob-purple"></div>
+                    <div class="glow-blob blob-purple v2"></div>
+                    <div class="glow-blob blob-blue"></div>
+                </div>
+                <section class="section--session-history">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="section__head">
+                                    <!-- <p class="section__tag">
+                                    <span class="section__tag-dot" aria-hidden="true"></span>
+                                    Session history
+                                </p> -->
+
+                                    <h2 class="section__title">
+                                        Understand how<br>&emsp; you
+                                        <span>spent your focus</span>
+                                    </h2>
+
+                                    <div class="section__text">
+                                        <p>
+                                            Your focus shouldn't disappear after each session. See your day at a glance
+                                            and
+                                            understand how you spent your focused time.
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul class="grcheck-list">
+                                    <li>Visual focus calendar</li>
+                                    <li>Integrate with Google Calendar & Outlook</li>
+                                    <li>Track focus by tags</li>
+                                    <li>See your daily progress</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5 offset-lg-1">
+                                <img class="session-history__img" src="img/features/session-history.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card-section">
+                    <div class="container">
+                        <div class="section__head section__head-centered">
+                            <h2 class="section__title">
+                                Every focus session
+                                <span>helps you<br> understand yourself</span>
+                            </h2>
+
+                            <div class="section__text">
+                                <p>
+                                    Your focus sessions become more than numbers. Over time, Floviu<br> helps you
+                                    discover
+                                    patterns and grow your Focus World.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="card-item">
+                                        <img class="card-item__icon" src="img/features/card-icon3.svg" alt="icon">
+                                        <h3>Focus Insights</h3>
+                                        <p class="card-item__subtitle">
+                                            Discover your patterns
+                                        </p>
+                                        <p>
+                                            Understand when you focus best, what distracts you, and which environments
+                                            help
+                                            you perform at your best.
+                                        </p>
+                                        <ul class="grcheck-list">
+                                            <li>Deep work</li>
+                                            <li>Distraction tracking</li>
+                                            <li>Session analytics</li>
+                                        </ul>
+                                        <a href="#" class="gradient-btn">
+                                            Explore Insights
+                                            <img src="img/features/white-arrow.svg" alt="iocn">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-item">
+                                        <img class="card-item__icon" src="img/features/card-icon4.svg" alt="icon">
+                                        <h3>Focus World</h3>
+                                        <p class="card-item__subtitle">
+                                            Turn focus into progress
+                                        </p>
+                                        <p>
+                                            Every focused session helps your world evolve. Consistency becomes something
+                                            you
+                                            can see and be proud of.
+                                        </p>
+                                        <ul class="grcheck-list">
+                                            <li>Grow your world</li>
+                                            <li>See your progress appear</li>
+                                            <li>Celebrate every step</li>
+                                        </ul>
+                                        <a href="#" class="gradient-btn">
+                                            Explore Focus World
+                                            <img src="img/features/white-arrow.svg" alt="iocn">
+                                        </a>
+                                        <img class="card-item__bg" src="img/features/card-item-bg.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- якір -->
+                
+
+            </div>
+
+
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__topsect">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a class="footer__logo" href="#">
+                                <img src="img/general/logo-footer.svg" alt="Floviu">
+                            </a>
+                            <ul class="footer__social-list">
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/youtube.svg" alt="youtube">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/ln.svg" alt="linkedin">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/x.svg" alt="x">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/instagram.svg" alt="instagram">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/tiktok.svg" alt="tiktok">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Features</p>
+                                <ul>
+                                    <li><a href="#">Focus Timer</a></li>
+                                    <li><a href="#">Focus Protection</a></li>
+                                    <li><a href="#">Soundscapes</a></li>
+                                    <li><a href="#">Focus Insights</a></li>
+                                    <li><a href="#">Focus World</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Resources</p>
+                                <ul>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">About Floviu</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="#">Reviews</a></li>
+                                </ul>
+                                <ul class="footer__downloads">
+                                    <li>
+                                        <a href="#">
+                                            Download for iOS
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Download for Android
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Compare Floviu</p>
+                                <ul>
+                                    <li><a href="#">Floviu vs Forest</a></li>
+                                    <li><a href="#">Floviu vs Opal</a></li>
+                                    <li><a href="#">Floviu vs Brain.fm</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottsect">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-7">
+                            <p class="footer__copyright">
+                                © 2026 Floviu NextGen Content LLC. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-5">
+                            <ul class="footer__links">
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/glow-blobs.js"></script>
+    <script src="js/lib/swiper.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
