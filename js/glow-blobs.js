@@ -350,10 +350,15 @@
       const { width: cssWidth, height: cssHeight } = getGroupCanvasSize(groupEl, layoutState, anchors);
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const newWidth = Math.round(cssWidth * dpr);
-      const newHeight = Math.round(cssHeight * dpr);
+      // Іноді реальна висота .glow-group трохи більша за виміряну,
+      // і тоді canvas лишається "нижче" по Y та з'являється шов/блік знизу.
+      // Підтягуємо canvas по висоті до реальної висоти контейнера.
+      const groupRect = groupEl.getBoundingClientRect();
+      const fixedCssHeight = Math.max(cssHeight, groupRect.height || cssHeight);
+      const newHeight = Math.round(fixedCssHeight * dpr);
 
       canvas.style.width = `${cssWidth}px`;
-      canvas.style.height = `${cssHeight}px`;
+      canvas.style.height = `${fixedCssHeight}px`;
 
       if (canvas.width !== newWidth || canvas.height !== newHeight) {
         canvas.width = newWidth;
@@ -361,7 +366,7 @@
         gl.viewport(0, 0, canvas.width, canvas.height);
       }
 
-      refreshBlobsFromCSS(cssWidth, cssHeight);
+      refreshBlobsFromCSS(cssWidth, fixedCssHeight);
       bgColor = readBgColor(groupEl);
     }
 

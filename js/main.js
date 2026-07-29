@@ -208,4 +208,43 @@ $('.closemenu, .menu-overlay').click(closeMobileMenu);
   // $(document).on('pause ended', '.videowrap__video', function () {
   //   $(this).closest('.videowrap').removeClass('is-playing');
   // });
+
+
+
+  // Download popups (pricing)
+  $(document).on('click', '[data-popup-open]', function () {
+    const popupId = $(this).attr('data-popup-open');
+    const $popup = $('#' + popupId);
+
+    if (!$popup.length) {
+      return;
+    }
+
+    $('.download-popup.is-open').removeClass('is-open');
+    $popup.addClass('is-open');
+    $('body').addClass('popup-open');
+  });
+
+  $(document).on('click', '[data-popup-close]', function () {
+    $(this).closest('.download-popup').removeClass('is-open');
+
+    if (!$('.download-popup.is-open').length) {
+      $('body').removeClass('popup-open');
+    }
+  });
+
+  $(document).on('keydown', function (e) {
+    if (e.key !== 'Escape') {
+      return;
+    }
+
+    const $openPopup = $('.download-popup.is-open');
+
+    if (!$openPopup.length) {
+      return;
+    }
+
+    $openPopup.removeClass('is-open');
+    $('body').removeClass('popup-open');
+  });
 })(jQuery);
