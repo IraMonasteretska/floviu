@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
+
+    <link rel="stylesheet" href="css/lib/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/lib/swiper.css">
+    <link rel="stylesheet" href="css/lib/select2.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="pagewrapper">
+        <header class="header">
+            <div class="container header__inner">
+                <a href="/" class="header__logo" aria-label="Floviu — home">
+                    <img class="header__logo-img" src="img/general/logo.svg" alt="Floviu" width="147" height="61">
+                </a>
+
+                <nav class="header__nav" aria-label="Main navigation">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a class="header__link" href="#">Features</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Pricing</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#">Resources</a>
+                        </li>
+                    </ul>
+                    <div class="header__actions" aria-label="Download">
+                        <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                            <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20"
+                                height="20">
+                            <span class="header__store-btn-text">Download for iOS</span>
+                        </a>
+                        <a class="header__store-btn header__store-btn--google" href="#"
+                            aria-label="Download for Android">
+                            <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt=""
+                                width="20" height="20">
+                            <span class="header__store-btn-text">Download for Android</span>
+                        </a>
+                    </div>
+                    <button type="button" class="closemenu" aria-label="Close Menu" aria-expanded="false"
+                        aria-controls="site-nav">
+                        <img src="img/general/close.png" alt="close">
+                    </button>
+                </nav>
+
+                <div class="header__actions" aria-label="Download">
+                    <a class="header__store-btn header__store-btn--apple" href="#" aria-label="Download for iOS">
+                        <img class="header__store-btn-icon" src="img/general/apple.svg" alt="" width="20" height="20">
+                        <span class="header__store-btn-text">Download for iOS</span>
+                    </a>
+                    <a class="header__store-btn header__store-btn--google" href="#" aria-label="Download for Android">
+                        <img class="header__store-btn-icon" src="img/general/google-play-white.svg" alt="" width="20"
+                            height="20">
+                        <span class="header__store-btn-text">Download for Android</span>
+                    </a>
+                </div>
+
+                <button type="button" class="mebubtn" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="site-nav">
+                    <img src="img/general/menu.png" alt="menu">
+                </button>
+            </div>
+            <div class="menu-overlay" aria-hidden="true"></div>
+        </header>
+
+        <main class="main">
+            <div class="glow-group">
+                <div class="glow-anchor glow-anchor--contacts" aria-hidden="true">
+                    <div class="glow-blob blob-orange"></div>
+                    <div class="glow-blob blob-blue"></div>
+                    <div class="glow-blob blob-purple"></div>
+                </div>
+
+                <section class="section--contacts">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="section__head">
+                                    <div class="fs-hero__label">
+                                        <img class="section__badge-icon" src="img/main/leaf.svg" alt="" width="20"
+                                            height="20">
+                                        We're here to help
+                                    </div>
+                                    <h1 class="section__title">
+                                        Let's
+                                        <span>talk</span>
+                                    </h1>
+                                    <p>
+                                        Whether you have a question about Floviu, need help with your account, found a
+                                        bug,
+                                        or simply want to share an idea, we'd love to hear from you.<br><br>
+                                        Our goal is to build a
+                                        focus app that genuinely helps people. Your feedback is part of that journey.
+
+                                    </p>
+                                    <div class="contacts__descr">
+                                        <h3>
+                                            Every message matters.
+                                        </h3>
+                                        <p>
+                                            We're a small team building Floviu with one goal:
+                                            <span>help people build better focus
+                                                in a world full of distractions.</span>
+                                        </p>
+                                        <hr>
+                                        <p>
+                                            We read every message because many of Floviu's best ideas come directly from
+                                            the
+                                            people using it.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="formwrapper">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="contact-name">Name</label>
+                                            <input type="text" id="contact-name" name="name" placeholder="Your name"
+                                                autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contact-email">Email</label>
+                                            <input type="email" id="contact-email" name="mail"
+                                                placeholder="you@example.com">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="contact-subject">Subject</label>
+                                            <select name="subject" id="contact-subject" class="styledselect"
+                                                data-placeholder="Select a topic">
+                                                <option value=""></option>
+                                                <option value="1">Subject</option>
+                                                <option value="2">Subject</option>
+                                                <option value="3">Subject</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="contact-message">Message</label>
+                                            <textarea name="message" id="contact-message"
+                                                placeholder="Tell us what’s on your mind..."></textarea>
+                                        </div>
+                                        <button type="submit" class="formbtn">
+                                            Send message
+                                            <img src="img/contact/submit-arrow.svg" alt="icon">
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <div class="glow-anchor glow-anchor--contactscta" aria-hidden="true">
+                    <div class="glow-blob blob-blue"></div>
+                </div>
+                <section class="cta-wrapper cta-wrapper--contacts">
+                    <div class="container">
+                        <div class="cta-content">
+                            <div class="row">
+                                <div class="col-xl-7 col-lg-8">
+                                    <div class="cta-content__inner">
+                                        <h2>
+                                            Thanks for helping us <br>
+                                            <span>build Floviu</span>
+                                        </h2>
+                                        <p>
+                                            Every question, suggestion, and piece of feedback helps us create <br>
+                                            a better experience for everyone building their focus.
+                                        </p>
+                                        <p class="gradient-text">
+                                            Because focus isn't something you find. It's something you build.
+                                        </p>
+                                        <div class="section__actions">
+                                            <a class="section__btn" href="#" aria-label="Download on the App Store">
+                                                <span class="section__btn-inner">
+                                                    <img class="section__btn-icon" src="img/general/apple.svg" alt=""
+                                                        width="32" height="32" aria-hidden="true">
+                                                    <span class="section__btn-text">
+                                                        <span class="section__btn-label">Download on the</span>
+                                                        <span class="section__btn-title">App Store</span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <a class="section__btn section__btn-playmarket" href="#"
+                                                aria-label="Get it on Google Play">
+                                                <span class="section__btn-inner">
+                                                    <img class="section__btn-icon" src="img/general/google-play.svg"
+                                                        alt="" width="32" height="32" aria-hidden="true">
+                                                    <span class="section__btn-text">
+                                                        <span class="section__btn-label">Get it on</span>
+                                                        <span class="section__btn-title">Google Play</span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="cta-bg" src="img/contact/contact-cta-bg.png" alt="background">
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__topsect">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a class="footer__logo" href="#">
+                                <img src="img/general/logo-footer.svg" alt="Floviu">
+                            </a>
+                            <ul class="footer__social-list">
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/youtube.svg" alt="youtube">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/ln.svg" alt="linkedin">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/x.svg" alt="x">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/instagram.svg" alt="instagram">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="img/general/tiktok.svg" alt="tiktok">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Features</p>
+                                <ul>
+                                    <li><a href="#">Focus Timer</a></li>
+                                    <li><a href="#">Focus Protection</a></li>
+                                    <li><a href="#">Soundscapes</a></li>
+                                    <li><a href="#">Focus Insights</a></li>
+                                    <li><a href="#">Focus World</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Resources</p>
+                                <ul>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">About Floviu</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="#">Reviews</a></li>
+                                </ul>
+                                <ul class="footer__downloads">
+                                    <li>
+                                        <a href="#">
+                                            Download for iOS
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Download for Android
+                                            <img src="img/main/arrow.svg" alt="iocn">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <nav class="footer__nav">
+                                <p class="title">Compare Floviu</p>
+                                <ul>
+                                    <li><a href="#">Floviu vs Forest</a></li>
+                                    <li><a href="#">Floviu vs Opal</a></li>
+                                    <li><a href="#">Floviu vs Brain.fm</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottsect">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-7">
+                            <p class="footer__copyright">
+                                © 2026 Floviu NextGen Content LLC. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-5">
+                            <ul class="footer__links">
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/glow-blobs.js"></script>
+    <script src="js/lib/swiper.js"></script>
+    <script src="js/lib/select2.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
