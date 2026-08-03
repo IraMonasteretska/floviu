@@ -124,26 +124,13 @@
   }
 
   function getOffsetWithinGroup(el, groupEl) {
-    let top = 0;
-    let left = 0;
-    let node = el;
-
-    while (node && node !== groupEl) {
-      top += node.offsetTop;
-      left += node.offsetLeft;
-      node = node.offsetParent;
-    }
-
-    if (node === groupEl) {
-      return { top, left };
-    }
-
+    // getBoundingClientRect стабільніший на mobile (transforms / sticky / складний offsetParent)
     const groupRect = groupEl.getBoundingClientRect();
     const elRect = el.getBoundingClientRect();
 
     return {
-      top: elRect.top - groupRect.top,
-      left: elRect.left - groupRect.left,
+      top: elRect.top - groupRect.top + (groupEl.scrollTop || 0),
+      left: elRect.left - groupRect.left + (groupEl.scrollLeft || 0),
     };
   }
 
@@ -151,7 +138,8 @@
     let bottom = 0;
 
     groupEl.querySelectorAll('section, [class*="section--"]').forEach((sectionEl) => {
-      bottom = Math.max(bottom, sectionEl.offsetTop + sectionEl.offsetHeight);
+      const { top } = getOffsetWithinGroup(sectionEl, groupEl);
+      bottom = Math.max(bottom, top + sectionEl.offsetHeight);
     });
 
     return bottom;
@@ -163,7 +151,8 @@
     anchors.forEach((anchorEl) => {
       const sectionEl = getGlowTargetSection(anchorEl, groupEl);
       if (sectionEl) {
-        bottom = Math.max(bottom, sectionEl.offsetTop + sectionEl.offsetHeight);
+        const { top } = getOffsetWithinGroup(sectionEl, groupEl);
+        bottom = Math.max(bottom, top + sectionEl.offsetHeight);
       }
     });
 
@@ -342,29 +331,58 @@
       });
     }
 
+    function getMaxGlSize() {
+      // На мобільних MAX часто 4096/8192; oversized canvas кліпається drawingBuffer → blobs «їдуть»
+      const tex = gl.getParameter(gl.MAX_TEXTURE_SIZE) || 4096;
+      const rb = gl.getParameter(gl.MAX_RENDERBUFFER_SIZE) || tex;
+      return Math.max(1, Math.min(tex, rb));
+    }
+
     function resize() {
       if (anchors.length) {
         positionAllAnchors(groupEl, anchors);
       }
 
       const { width: cssWidth, height: cssHeight } = getGroupCanvasSize(groupEl, layoutState, anchors);
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const newWidth = Math.round(cssWidth * dpr);
       // Іноді реальна висота .glow-group трохи більша за виміряну,
       // і тоді canvas лишається "нижче" по Y та з'являється шов/блік знизу.
       // Підтягуємо canvas по висоті до реальної висоти контейнера.
-      const groupRect = groupEl.getBoundingClientRect();
-      const fixedCssHeight = Math.max(cssHeight, groupRect.height || cssHeight);
-      const newHeight = Math.round(fixedCssHeight * dpr);
+      // Не беремо висоту absolute canvas (вона не в layout), лише clientHeight групи.
+      const groupH = Math.max(groupEl.clientHeight || 0, groupEl.scrollHeight || 0);
+      const fixedCssHeight = Math.max(cssHeight, groupH || cssHeight);
 
+      // CSS-розмір логічний (відповідь координатам blob), buffer — з DPR і cap GPU
       canvas.style.width = `${cssWidth}px`;
       canvas.style.height = `${fixedCssHeight}px`;
+
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // На дуже високих сторінках зменшуємо DPR, щоб width*dpr / height*dpr вклались у ліміт WebGL
+      const maxGl = getMaxGlSize();
+      const rawW = cssWidth * dpr;
+      const rawH = fixedCssHeight * dpr;
+      const rawMax = Math.max(rawW, rawH);
+      if (rawMax > maxGl) {
+        dpr = dpr * (maxGl / rawMax);
+      }
+
+      let newWidth = Math.max(1, Math.round(cssWidth * dpr));
+      let newHeight = Math.max(1, Math.round(fixedCssHeight * dpr));
+      // Гарантуємо аспект ≈ CSS, і жодний бік > maxGl
+      if (newWidth > maxGl || newHeight > maxGl) {
+        const scale = maxGl / Math.max(newWidth, newHeight);
+        newWidth = Math.max(1, Math.floor(newWidth * scale));
+        newHeight = Math.max(1, Math.floor(newHeight * scale));
+      }
 
       if (canvas.width !== newWidth || canvas.height !== newHeight) {
         canvas.width = newWidth;
         canvas.height = newHeight;
-        gl.viewport(0, 0, canvas.width, canvas.height);
       }
+
+      // Завжди реальний drawing buffer (після кліпу GPU), а не canvas.width
+      const bufW = gl.drawingBufferWidth || canvas.width;
+      const bufH = gl.drawingBufferHeight || canvas.height;
+      gl.viewport(0, 0, bufW, bufH);
 
       refreshBlobsFromCSS(cssWidth, fixedCssHeight);
       bgColor = readBgColor(groupEl);
@@ -391,7 +409,10 @@
     resize();
 
     function render(time) {
-      gl.uniform2f(resLoc, canvas.width, canvas.height);
+      // drawingBuffer — фактичний розмір фреймбуфера (важливо на mobile при cap розміру)
+      const bufW = gl.drawingBufferWidth || canvas.width;
+      const bufH = gl.drawingBufferHeight || canvas.height;
+      gl.uniform2f(resLoc, bufW, bufH);
       gl.uniform1f(timeLoc, time * 0.001);
       gl.uniform1i(countLoc, activeBlobs.length);
       gl.uniform2fv(centersLoc, centers);
