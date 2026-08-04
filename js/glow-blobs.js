@@ -1,5 +1,9 @@
 (function () {
   const MAX_BLOBS = 24;
+  // Запас висоти поверх контенту — FAQ open вміщується без resize canvas
+  const DEFAULT_EXTRA_PX = 500;
+  // Значна зміна ширини (rotate / desktop↔mobile), ігноруємо snall toolbar resize
+  const WIDTH_RESIZE_THRESHOLD = 80;
 
   const vertexSrc = `
     attribute vec2 position;
@@ -124,7 +128,6 @@
   }
 
   function getOffsetWithinGroup(el, groupEl) {
-    // getBoundingClientRect стабільніший на mobile (transforms / sticky / складний offsetParent)
     const groupRect = groupEl.getBoundingClientRect();
     const elRect = el.getBoundingClientRect();
 
@@ -132,37 +135,6 @@
       top: elRect.top - groupRect.top + (groupEl.scrollTop || 0),
       left: elRect.left - groupRect.left + (groupEl.scrollLeft || 0),
     };
-  }
-
-  function measureContentBottom(groupEl) {
-    let bottom = 0;
-
-    groupEl.querySelectorAll('section, [class*="section--"]').forEach((sectionEl) => {
-      const { top } = getOffsetWithinGroup(sectionEl, groupEl);
-      bottom = Math.max(bottom, top + sectionEl.offsetHeight);
-    });
-
-    return bottom;
-  }
-
-  function measureAnchorContentBottom(groupEl, anchors) {
-    let bottom = 0;
-
-    anchors.forEach((anchorEl) => {
-      const sectionEl = getGlowTargetSection(anchorEl, groupEl);
-      if (sectionEl) {
-        const { top } = getOffsetWithinGroup(sectionEl, groupEl);
-        bottom = Math.max(bottom, top + sectionEl.offsetHeight);
-      }
-    });
-
-    return bottom || measureContentBottom(groupEl);
-  }
-
-  function getBleedPx(groupEl) {
-    const { height: viewportH } = getLayoutViewport();
-    const bleedRaw = getComputedStyle(groupEl).getPropertyValue('--glow-canvas-bleed').trim() || '420px';
-    return parseCssLength(bleedRaw, viewportH) ?? 420;
   }
 
   function parseCssLength(raw, base) {
@@ -211,38 +183,57 @@
     });
   }
 
-  function getGroupCanvasSize(groupEl, layoutState, anchors) {
+  function getExtraPx(groupEl) {
     const { height: viewportH } = getLayoutViewport();
+    const raw = getComputedStyle(groupEl).getPropertyValue('--glow-canvas-extra').trim()
+      || getComputedStyle(groupEl).getPropertyValue('--glow-canvas-bleed').trim()
+      || `${DEFAULT_EXTRA_PX}px`;
+    return parseCssLength(raw, viewportH) ?? DEFAULT_EXTRA_PX;
+  }
+
+  /**
+   * Висота контенту .glow-group (без absolute canvas) + запас EXTRA.
+   */
+  function measureCanvasSize(groupEl, canvas) {
     const width = Math.max(1, groupEl.clientWidth);
     const cs = getComputedStyle(groupEl);
+    const { height: viewportH } = getLayoutViewport();
 
     const customHeight = cs.getPropertyValue('--glow-canvas-height').trim();
     if (customHeight) {
       const parsed = parseCssLength(customHeight, viewportH);
       if (parsed) {
-        layoutState.width = width;
-        layoutState.height = Math.max(1, parsed);
-        return { width, height: layoutState.height };
+        return { width, height: Math.max(1, parsed) };
       }
     }
 
-    // Тільки висота контенту (секції/якорі), НЕ scrollHeight групи —
-    // absolute canvas роздуває scrollHeight і «залипає» після mobile → desktop.
-    const measured = Math.max(1, measureAnchorContentBottom(groupEl, anchors) + getBleedPx(groupEl));
+    const prevHeight = canvas.style.height;
+    canvas.style.height = '0px';
+    void groupEl.offsetHeight;
 
-    // Висота: перерахунок при зміні ширини (breakpoint).
-    // При тій самій ширині (mobile toolbar) — не стискаємо від шуму, лише ростемо.
-    if (!layoutState.height || width !== layoutState.width) {
-      layoutState.width = width;
-      layoutState.height = measured;
-    } else if (measured > layoutState.height) {
-      layoutState.height = measured;
+    const groupRect = groupEl.getBoundingClientRect();
+    let contentBottom = 0;
+
+    for (const child of groupEl.children) {
+      if (child === canvas) continue;
+      if (child.classList && child.classList.contains('glow-anchor')) continue;
+      if (child.classList && child.classList.contains('glow-group__canvas')) continue;
+
+      const childCs = getComputedStyle(child);
+      if (childCs.display === 'none') continue;
+      if (childCs.position === 'absolute' || childCs.position === 'fixed') continue;
+
+      const r = child.getBoundingClientRect();
+      contentBottom = Math.max(contentBottom, r.bottom - groupRect.top);
     }
 
-    return {
-      width,
-      height: layoutState.height,
-    };
+    const padBottom = parseFloat(cs.paddingBottom) || 0;
+    const contentH = Math.max(1, contentBottom + padBottom, groupEl.clientHeight || 0);
+    const height = contentH + getExtraPx(groupEl);
+
+    canvas.style.height = prevHeight;
+
+    return { width, height };
   }
 
   function createGlContext(canvas) {
@@ -306,7 +297,8 @@
     const radii = new Float32Array(MAX_BLOBS);
     const opacities = new Float32Array(MAX_BLOBS);
     let bgColor = readBgColor(groupEl);
-    const layoutState = { width: 0, height: 0 };
+    // Залочена ширина: FAQ/дрібний resize не перемальовує canvas
+    let lockedWidth = 0;
 
     function refreshBlobsFromCSS(cssWidth, cssHeight) {
       activeBlobs.forEach((el, i) => {
@@ -337,39 +329,24 @@
     }
 
     function getMaxGlSize() {
-      // На мобільних MAX часто 4096/8192; oversized canvas кліпається drawingBuffer → blobs «їдуть»
       const tex = gl.getParameter(gl.MAX_TEXTURE_SIZE) || 4096;
       const rb = gl.getParameter(gl.MAX_RENDERBUFFER_SIZE) || tex;
       return Math.max(1, Math.min(tex, rb));
     }
 
-    function resize() {
-      if (anchors.length) {
-        positionAllAnchors(groupEl, anchors);
-      }
-
-      const { width: cssWidth, height: cssHeight } = getGroupCanvasSize(groupEl, layoutState, anchors);
-      // Висота лише з виміру контенту — не max(scrollHeight): absolute canvas
-      // розтягує групу після device-mode toggle і лишає діру під футером.
-      const fixedCssHeight = cssHeight;
-
-      // CSS-розмір логічний (координати blob), buffer — з DPR і cap GPU
+    function applyCanvasSize(cssWidth, cssHeight) {
       canvas.style.width = `${cssWidth}px`;
-      canvas.style.height = `${fixedCssHeight}px`;
+      canvas.style.height = `${cssHeight}px`;
 
       let dpr = Math.min(window.devicePixelRatio || 1, 2);
-      // На дуже високих сторінках зменшуємо DPR, щоб width*dpr / height*dpr вклались у ліміт WebGL
       const maxGl = getMaxGlSize();
-      const rawW = cssWidth * dpr;
-      const rawH = fixedCssHeight * dpr;
-      const rawMax = Math.max(rawW, rawH);
+      const rawMax = Math.max(cssWidth * dpr, cssHeight * dpr);
       if (rawMax > maxGl) {
-        dpr = dpr * (maxGl / rawMax);
+        dpr *= maxGl / rawMax;
       }
 
       let newWidth = Math.max(1, Math.round(cssWidth * dpr));
-      let newHeight = Math.max(1, Math.round(fixedCssHeight * dpr));
-      // Гарантуємо аспект ≈ CSS, і жодний бік > maxGl
+      let newHeight = Math.max(1, Math.round(cssHeight * dpr));
       if (newWidth > maxGl || newHeight > maxGl) {
         const scale = maxGl / Math.max(newWidth, newHeight);
         newWidth = Math.max(1, Math.floor(newWidth * scale));
@@ -381,37 +358,50 @@
         canvas.height = newHeight;
       }
 
-      // Завжди реальний drawing buffer (після кліпу GPU), а не canvas.width
       const bufW = gl.drawingBufferWidth || canvas.width;
       const bufH = gl.drawingBufferHeight || canvas.height;
       gl.viewport(0, 0, bufW, bufH);
+    }
 
-      refreshBlobsFromCSS(cssWidth, fixedCssHeight);
+    function rebuild(force) {
+      const widthNow = Math.max(1, groupEl.clientWidth);
+
+      // Не чіпаємо canvas на FAQ / дрібний resize — лише суттєва зміна ширини / force
+      if (!force && lockedWidth > 0 && Math.abs(widthNow - lockedWidth) < WIDTH_RESIZE_THRESHOLD) {
+        return;
+      }
+
+      if (anchors.length) {
+        positionAllAnchors(groupEl, anchors);
+      }
+
+      const { width: cssWidth, height: cssHeight } = measureCanvasSize(groupEl, canvas);
+      lockedWidth = cssWidth;
+
+      applyCanvasSize(cssWidth, cssHeight);
+      refreshBlobsFromCSS(cssWidth, cssHeight);
       bgColor = readBgColor(groupEl);
     }
 
-    let resizeTimer;
-    let resizeRaf = 0;
+    let resizeTimer = 0;
 
-    function scheduleResize() {
+    function scheduleRebuild() {
       clearTimeout(resizeTimer);
-      cancelAnimationFrame(resizeRaf);
-
-      resizeTimer = setTimeout(() => {
-        resizeRaf = requestAnimationFrame(() => {
-          resizeRaf = requestAnimationFrame(resize);
-        });
-      }, 120);
+      resizeTimer = setTimeout(() => rebuild(false), 150);
     }
 
-    window.addEventListener('resize', scheduleResize);
+    window.addEventListener('resize', scheduleRebuild);
+    window.addEventListener('orientationchange', () => {
+      clearTimeout(resizeTimer);
+      // після rotate layout ще доїжджає
+      resizeTimer = setTimeout(() => rebuild(true), 250);
+    });
 
-    new ResizeObserver(scheduleResize).observe(groupEl);
-
-    resize();
+    // Перший прохід + після fonts/картинок (висота контенту)
+    rebuild(true);
+    window.addEventListener('load', () => rebuild(true), { once: true });
 
     function render(time) {
-      // drawingBuffer — фактичний розмір фреймбуфера (важливо на mobile при cap розміру)
       const bufW = gl.drawingBufferWidth || canvas.width;
       const bufH = gl.drawingBufferHeight || canvas.height;
       gl.uniform2f(resLoc, bufW, bufH);
