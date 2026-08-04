@@ -2,8 +2,6 @@
   const MAX_BLOBS = 24;
   // Запас висоти поверх контенту — FAQ open вміщується без resize canvas
   const DEFAULT_EXTRA_PX = 500;
-  // Значна зміна ширини (rotate / desktop↔mobile), ігноруємо snall toolbar resize
-  const WIDTH_RESIZE_THRESHOLD = 80;
 
   const vertexSrc = `
     attribute vec2 position;
@@ -297,7 +295,7 @@
     const radii = new Float32Array(MAX_BLOBS);
     const opacities = new Float32Array(MAX_BLOBS);
     let bgColor = readBgColor(groupEl);
-    // Залочена ширина: FAQ/дрібний resize не перемальовує canvas
+    // залочена ширина: FAQ не чіпає; будь-яка зміна ширини — rebuild
     let lockedWidth = 0;
 
     function refreshBlobsFromCSS(cssWidth, cssHeight) {
@@ -335,7 +333,8 @@
     }
 
     function applyCanvasSize(cssWidth, cssHeight) {
-      canvas.style.width = `${cssWidth}px`;
+      // width: 100% — завжди на всю ширину group (без чорної смуги при drag-resize)
+      canvas.style.width = '100%';
       canvas.style.height = `${cssHeight}px`;
 
       let dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -366,8 +365,8 @@
     function rebuild(force) {
       const widthNow = Math.max(1, groupEl.clientWidth);
 
-      // Не чіпаємо canvas на FAQ / дрібний resize — лише суттєва зміна ширини / force
-      if (!force && lockedWidth > 0 && Math.abs(widthNow - lockedWidth) < WIDTH_RESIZE_THRESHOLD) {
+      // FAQ / height-only: пропускаємо. Ширина змінилась хоча б на 1px — оновлюємо
+      if (!force && lockedWidth > 0 && Math.abs(widthNow - lockedWidth) < 1) {
         return;
       }
 
@@ -387,17 +386,16 @@
 
     function scheduleRebuild() {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => rebuild(false), 150);
+      // короткий debounce — щоб drag-resize був плавний, але без чорної смуги
+      resizeTimer = setTimeout(() => rebuild(false), 50);
     }
 
     window.addEventListener('resize', scheduleRebuild);
     window.addEventListener('orientationchange', () => {
       clearTimeout(resizeTimer);
-      // після rotate layout ще доїжджає
-      resizeTimer = setTimeout(() => rebuild(true), 250);
+      resizeTimer = setTimeout(() => rebuild(true), 200);
     });
 
-    // Перший прохід + після fonts/картинок (висота контенту)
     rebuild(true);
     window.addEventListener('load', () => rebuild(true), { once: true });
 
