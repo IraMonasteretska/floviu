@@ -226,11 +226,16 @@
       }
     }
 
+    // Тільки висота контенту (секції/якорі), НЕ scrollHeight групи —
+    // absolute canvas роздуває scrollHeight і «залипає» після mobile → desktop.
     const measured = Math.max(1, measureAnchorContentBottom(groupEl, anchors) + getBleedPx(groupEl));
 
-    // Висота canvas — тільки при зміні ширини (breakpoint), не при toolbar
+    // Висота: перерахунок при зміні ширини (breakpoint).
+    // При тій самій ширині (mobile toolbar) — не стискаємо від шуму, лише ростемо.
     if (!layoutState.height || width !== layoutState.width) {
       layoutState.width = width;
+      layoutState.height = measured;
+    } else if (measured > layoutState.height) {
       layoutState.height = measured;
     }
 
@@ -344,14 +349,11 @@
       }
 
       const { width: cssWidth, height: cssHeight } = getGroupCanvasSize(groupEl, layoutState, anchors);
-      // Іноді реальна висота .glow-group трохи більша за виміряну,
-      // і тоді canvas лишається "нижче" по Y та з'являється шов/блік знизу.
-      // Підтягуємо canvas по висоті до реальної висоти контейнера.
-      // Не беремо висоту absolute canvas (вона не в layout), лише clientHeight групи.
-      const groupH = Math.max(groupEl.clientHeight || 0, groupEl.scrollHeight || 0);
-      const fixedCssHeight = Math.max(cssHeight, groupH || cssHeight);
+      // Висота лише з виміру контенту — не max(scrollHeight): absolute canvas
+      // розтягує групу після device-mode toggle і лишає діру під футером.
+      const fixedCssHeight = cssHeight;
 
-      // CSS-розмір логічний (відповідь координатам blob), buffer — з DPR і cap GPU
+      // CSS-розмір логічний (координати blob), buffer — з DPR і cap GPU
       canvas.style.width = `${cssWidth}px`;
       canvas.style.height = `${fixedCssHeight}px`;
 
